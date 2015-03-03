@@ -6,7 +6,6 @@ var Instagram = require('instagram-node-lib');
 var http = require('http');
 var request = ('request');
 var intervalID;
-var hashtagValue = document.getElementById("hashtagValue").value;
 
 /**
  * Set the paths for your files
@@ -38,7 +37,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: ''.hashtagValue,
+  object_id: 'test',
   aspect: 'media',
   callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
   type: 'subscription',
@@ -105,7 +104,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: ''.hashtagValue,
+      name: 'test',
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
