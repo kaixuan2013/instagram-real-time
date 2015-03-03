@@ -37,7 +37,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'lollapalooza',
+  object_id: 'test',
   aspect: 'media',
   callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
   type: 'subscription',
@@ -51,7 +51,7 @@ Instagram.subscriptions.subscribe({
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'lollapalooza2013',
+  object_id: 'campignite',
   aspect: 'media',
   callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
   type: 'subscription',
@@ -65,7 +65,7 @@ Instagram.subscriptions.subscribe({
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'lolla2013',
+  object_id: 'igniteyouths',
   aspect: 'media',
   callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
   type: 'subscription',
@@ -116,7 +116,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: 'lollapalooza',
+      name: 'test',
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
