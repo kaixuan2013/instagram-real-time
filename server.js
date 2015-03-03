@@ -6,6 +6,7 @@ var Instagram = require('instagram-node-lib');
 var http = require('http');
 var request = ('request');
 var intervalID;
+var hashtagValue = document.getElementById("hashtagValue").value;
 
 /**
  * Set the paths for your files
@@ -37,7 +38,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'test',
+  object_id: ''.hashtagValue,
   aspect: 'media',
   callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
   type: 'subscription',
@@ -49,6 +50,7 @@ Instagram.subscriptions.subscribe({
  * with the tag "hashtag" lollapalooza2013
  * @type {String}
  */
+ /*
 Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'campignite',
@@ -57,20 +59,7 @@ Instagram.subscriptions.subscribe({
   type: 'subscription',
   id: '#'
 });
-
-/**
- * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
- * with the tag "hashtag" lolla2013
- * @type {String}
- */
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: 'igniteyouths',
-  aspect: 'media',
-  callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
-  type: 'subscription',
-  id: '#'
-});
+*/
 
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
@@ -116,7 +105,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: 'test',
+      name: ''.hashtagValue,
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
