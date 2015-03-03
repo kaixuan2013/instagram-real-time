@@ -26,8 +26,8 @@ var clientID = '0072f330b5d449cf8fe3820dcc5e5476',
  */
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/callback');
-Instagram.set('redirect_uri', 'http://pictureful-realtime.herokuapp.com');
+Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/album.html/callback');
+Instagram.set('redirect_uri', 'http://pictureful-realtime.herokuapp.com/album.html');
 Instagram.set('maxSockets', 10);
 
 /**
@@ -39,7 +39,7 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'test',
   aspect: 'media',
-  callback_url: 'http://pictureful-realtime.herokuapp.com/callback',
+  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
   id: '#'
 });
@@ -92,7 +92,7 @@ app.configure(function(){
  * Render your index/view "my choice was not use jade"
  */
 app.get("/views", function(req, res){
-    res.render("index");
+    res.render("album");
 });
 
 // check subscriptions
