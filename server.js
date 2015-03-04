@@ -26,7 +26,7 @@ var clientID = '0072f330b5d449cf8fe3820dcc5e5476',
  */
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/album.html');
+Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/album.html/callback');
 Instagram.set('redirect_uri', 'http://pictureful-realtime.herokuapp.com/album.html');
 Instagram.set('maxSockets', 10);
 
@@ -39,7 +39,7 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'siss',
   aspect: 'media',
-  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html',
+  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
   id: '#'
 });
@@ -54,7 +54,7 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'cool',
   aspect: 'media',
-  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html',
+  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
   id: '#'
 });
@@ -114,14 +114,14 @@ io.sockets.on('connection', function (socket) {
 /**
  * Needed to receive the handshake
  */
-app.get('/callback', function(req, res){
+app.get('/album.html/callback', function(req, res){
     var handshake =  Instagram.subscriptions.handshake(req, res);
 });
 
 /**
  * for each new post Instagram send us the data
  */
-app.post('/callback', function(req, res) {
+app.post('/album.html/callback', function(req, res) {
     var data = req.body;
 
     // Grab the hashtag "tag.object_id"
