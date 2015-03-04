@@ -37,7 +37,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'siss',
+  object_id: 'test',
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
@@ -49,7 +49,7 @@ Instagram.subscriptions.subscribe({
  * with the tag "hashtag" lollapalooza2013
  * @type {String}
  */
- 
+/*
 Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'cool',
@@ -58,7 +58,7 @@ Instagram.subscriptions.subscribe({
   type: 'subscription',
   id: '#'
 });
-
+*/
 
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
@@ -104,7 +104,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: 'siss',
+      name: 'test',
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
