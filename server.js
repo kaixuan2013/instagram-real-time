@@ -37,7 +37,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'test',
+  object_id: 'siss',
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
@@ -52,7 +52,7 @@ Instagram.subscriptions.subscribe({
  
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'siss',
+  object_id: 'cool',
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
