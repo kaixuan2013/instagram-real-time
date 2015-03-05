@@ -7,6 +7,17 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
+var hashTag = 'test';
+
+//app.set('views', __dirname + '/views');
+//app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'jade');
+
+app.get('/album.html', function(req, res){
+  hashTag = req.param('name');
+  res.render('album');
+});
+
 /**
  * Set the paths for your files
  * @type {[string]}
@@ -37,13 +48,15 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'test',
+  object_id: hashTag,
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
   id: '#'
 });
 
+//Instagram.subscriptions.unsubscribe({ id: '17093150'});
+//Instagram.subscriptions.unsubscribe({ id: '17093149'});
 /**
  * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
  * with the tag "hashtag" lollapalooza2013
@@ -104,7 +117,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: 'test',
+      name: hashTag,
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
