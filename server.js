@@ -14,7 +14,7 @@ var hashTag = 'test';
 app.set('view engine', 'jade');
 
 app.get('/album.html', function(req, res){
-  hashTag = req.params('name');
+  hashTag = req.param('name');
   res.send(hashTag);
   //res.render('album');
 });
