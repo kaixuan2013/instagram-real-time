@@ -51,12 +51,12 @@ Instagram.subscriptions.subscribe({
  * with the tag "hashtag" lollapalooza2013
  * @type {String}
  */
- /*
+/*
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'campignite',
+  object_id: 'campignite2',
   aspect: 'media',
-  callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
+  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
   id: '#'
 });
@@ -106,7 +106,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: 'test',
+      name: hashTag,
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
