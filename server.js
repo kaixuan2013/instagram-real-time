@@ -13,12 +13,6 @@ var hashTag = 'guitar';
 //app.engine('html', require('ejs').renderFile);
 //app.set('view engine', 'jade');
 
-app.get('/album.html', function(req, res){
-  hashTag = req.param('name');
-  res.redirect('/album.html');
-});
-
-
 /**
  * Set the paths for your files
  * @type {[string]}
@@ -110,6 +104,12 @@ app.get("/views", function(req, res){
     res.render("album");
 });
 */
+
+app.get('/album.html', function(req, res){
+  hashTag = req.param('name');
+  res.render('album.html');
+});
+
 // check subscriptions
 // https://api.instagram.com/v1/subscriptions?client_secret=YOUR_CLIENT_ID&client_id=YOUR_CLIENT_SECRET
 
