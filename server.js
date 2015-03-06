@@ -15,6 +15,7 @@ var hashTag = 'guitar';
 
 app.get('/album.html', function(req, res){
   hashTag = req.param('name');
+  res.render('album');
 });
 
 
@@ -104,10 +105,11 @@ app.configure(function(){
 /**
  * Render your index/view "my choice was not use jade"
  */
+ /*
 app.get("/views", function(req, res){
     res.render("album");
 });
-
+*/
 // check subscriptions
 // https://api.instagram.com/v1/subscriptions?client_secret=YOUR_CLIENT_ID&client_id=YOUR_CLIENT_SECRET
 
