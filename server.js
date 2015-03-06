@@ -12,15 +12,11 @@ var hashTag = 'guitar';
 //app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);
 //app.set('view engine', 'jade');
-/*
+
 app.get('/album.html', function(req, res){
   hashTag = req.param('name');
-  instagramSubscribe(hashTag);
-  //res.render('album');
 });
-*/
 
-instagramSubscribe(hashTag);
 
 /**
  * Set the paths for your files
@@ -50,8 +46,7 @@ Instagram.set('maxSockets', 10);
  * with the tag "hashtag" lollapalooza
  * @type {String}
  */
- function instagramSubscribe(hashTag) {
-    Instagram.subscriptions.subscribe({
+ Instagram.subscriptions.subscribe({
     object: 'tag',
     object_id: hashTag,
     aspect: 'media',
@@ -59,7 +54,6 @@ Instagram.set('maxSockets', 10);
     type: 'subscription',
     id: '#'
   });
- }
 
 //Instagram.subscriptions.unsubscribe({ id: '17093150'});
 //Instagram.subscriptions.unsubscribe({ id: '17093149'});
