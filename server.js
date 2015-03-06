@@ -12,6 +12,12 @@ var hashTag = 'guitar';
 //app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);
 //app.set('view engine', 'jade');
+/*
+app.get('/album.html', function(req, res){
+  hashTag = req.param('name');
+  res.render('album');
+});
+*/
 
 /**
  * Set the paths for your files
@@ -99,16 +105,10 @@ app.configure(function(){
 /**
  * Render your index/view "my choice was not use jade"
  */
- /*
 app.get("/views", function(req, res){
     res.render("album");
 });
-*/
 
-app.get('/album.html', function(req, res){
-  hashTag = req.param('name');
-  res.render('album');
-});
 
 // check subscriptions
 // https://api.instagram.com/v1/subscriptions?client_secret=YOUR_CLIENT_ID&client_id=YOUR_CLIENT_SECRET
