@@ -38,7 +38,7 @@ var clientID = '0072f330b5d449cf8fe3820dcc5e5476',
  */
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/album.html/callback');
+Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/album.html');
 Instagram.set('redirect_uri', 'http://pictureful-realtime.herokuapp.com/album.html');
 Instagram.set('maxSockets', 10);
 
