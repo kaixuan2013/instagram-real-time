@@ -128,7 +128,7 @@ io.sockets.on('connection', function (socket) {
 /**
  * Needed to receive the handshake
  */
-app.get('/album.html/callback', function(req, res){
+app.get('/index.html/callback', function(req, res){
     var handshake =  Instagram.subscriptions.handshake(req, res);
 });
 
