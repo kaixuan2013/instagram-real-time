@@ -7,7 +7,7 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-//var hashTag = 'guitar';
+var hashTag = 'picturefultest';
 
 /**
  * Set the paths for your files
@@ -39,7 +39,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'guitar',
+  object_id: hashTag,
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
@@ -106,7 +106,7 @@ app.get("/views", function(req, res){
  */
 io.sockets.on('connection', function (socket) {
   Instagram.tags.recent({
-      name: 'guitar',
+      name: 'test',
       complete: function(data) {
         socket.emit('firstShow', { firstShow: data });
       }
@@ -116,14 +116,14 @@ io.sockets.on('connection', function (socket) {
 /**
  * Needed to receive the handshake
  */
-app.get('/callback', function(req, res){
+app.get('/album.html/callback', function(req, res){
     var handshake =  Instagram.subscriptions.handshake(req, res);
 });
 
 /**
  * for each new post Instagram send us the data
  */
-app.post('/callback', function(req, res) {
+app.post('/album.html/callback', function(req, res) {
     var data = req.body;
 
     // Grab the hashtag "tag.object_id"
