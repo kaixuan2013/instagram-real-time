@@ -100,7 +100,7 @@ app.configure(function(){
  * Render your index/view "my choice was not use jade"
  */
 app.get('/views', function(req, res){
-  hashTag = req.param('name');
+  hashTag = req.query.name;
   res.render('album');
 });
 
