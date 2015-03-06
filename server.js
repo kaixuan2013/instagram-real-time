@@ -15,7 +15,7 @@ var hashTag = 'guitar';
 
 app.get('/album.html', function(req, res){
   hashTag = req.param('name');
-  res.render('album');
+  res.redirect('/album.html');
 });
 
 
