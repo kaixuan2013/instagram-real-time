@@ -51,7 +51,7 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: hashTag,
   aspect: 'media',
-  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
+  callback_url: 'http://pictureful-realtime.herokuapp.com/index.html/callback',
   type: 'subscription',
   id: '#'
 });
