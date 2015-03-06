@@ -107,7 +107,7 @@ app.get("/views", function(req, res){
 
 app.get('/album.html', function(req, res){
   hashTag = req.param('name');
-  res.render('album.html');
+  res.render('album');
 });
 
 // check subscriptions
