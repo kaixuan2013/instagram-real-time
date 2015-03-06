@@ -7,17 +7,17 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-var hashTag = 'test';
+var hashTag = 'ukelele';
 
 //app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'jade');
-
+//app.set('view engine', 'jade');
+/*
 app.get('/album.html', function(req, res){
   hashTag = req.param('name');
-  res.send(hashTag);
-  //res.render('album');
+  res.render('album');
 });
+*/
 
 /**
  * Set the paths for your files
