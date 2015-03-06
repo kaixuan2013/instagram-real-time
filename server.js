@@ -7,7 +7,7 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-var hashTag = 'ukelele';
+var hashTag = 'guitar';
 
 //app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);
@@ -15,9 +15,12 @@ var hashTag = 'ukelele';
 /*
 app.get('/album.html', function(req, res){
   hashTag = req.param('name');
-  res.render('album');
+  instagramSubscribe(hashTag);
+  //res.render('album');
 });
 */
+
+instagramSubscribe(hashTag);
 
 /**
  * Set the paths for your files
@@ -47,14 +50,16 @@ Instagram.set('maxSockets', 10);
  * with the tag "hashtag" lollapalooza
  * @type {String}
  */
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: hashTag,
-  aspect: 'media',
-  callback_url: 'http://pictureful-realtime.herokuapp.com/index.html/callback',
-  type: 'subscription',
-  id: '#'
-});
+ function instagramSubscribe(hashTag) {
+    Instagram.subscriptions.subscribe({
+    object: 'tag',
+    object_id: hashTag,
+    aspect: 'media',
+    callback_url: 'http://pictureful-realtime.herokuapp.com/index.html/callback',
+    type: 'subscription',
+    id: '#'
+  });
+ }
 
 //Instagram.subscriptions.unsubscribe({ id: '17093150'});
 //Instagram.subscriptions.unsubscribe({ id: '17093149'});
@@ -128,7 +133,7 @@ io.sockets.on('connection', function (socket) {
 /**
  * Needed to receive the handshake
  */
-app.get('/index.html/callback', function(req, res){
+app.get('/album.html/callback', function(req, res){
     var handshake =  Instagram.subscriptions.handshake(req, res);
 });
 
