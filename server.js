@@ -11,7 +11,12 @@ var hashTag = 'test';
 
 //app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);
-//app.set('view engine', 'jade');
+app.set('view engine', 'jade');
+
+app.get('/album.html', function(req, res){
+  hashTag = req.query.name;
+  res.render('album');
+});
 
 /**
  * Set the paths for your files
@@ -99,9 +104,8 @@ app.configure(function(){
 /**
  * Render your index/view "my choice was not use jade"
  */
-app.get('/views', function(req, res){
-  hashTag = req.query.name;
-  res.render('album');
+app.get("/views", function(req, res){
+    res.render("album");
 });
 
 // check subscriptions
