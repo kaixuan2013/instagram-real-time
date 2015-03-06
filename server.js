@@ -9,16 +9,6 @@ var intervalID;
 
 var hashTag = 'guitar';
 
-//app.set('views', __dirname + '/views');
-//app.engine('html', require('ejs').renderFile);
-//app.set('view engine', 'jade');
-/*
-app.get('/album.html', function(req, res){
-  hashTag = req.param('name');
-  res.render('album');
-});
-*/
-
 /**
  * Set the paths for your files
  * @type {[string]}
@@ -38,7 +28,7 @@ var clientID = '0072f330b5d449cf8fe3820dcc5e5476',
  */
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/album.html');
+Instagram.set('callback_url', 'http://pictureful-realtime.herokuapp.com/album.html/callback');
 Instagram.set('redirect_uri', 'http://pictureful-realtime.herokuapp.com/album.html');
 Instagram.set('maxSockets', 10);
 
@@ -47,28 +37,26 @@ Instagram.set('maxSockets', 10);
  * with the tag "hashtag" lollapalooza
  * @type {String}
  */
- Instagram.subscriptions.subscribe({
-    object: 'tag',
-    object_id: hashTag,
-    aspect: 'media',
-    callback_url: 'http://pictureful-realtime.herokuapp.com/index.html/callback',
-    type: 'subscription',
-    id: '#'
-  });
+Instagram.subscriptions.subscribe({
+  object: 'tag',
+  object_id: hashTag,
+  aspect: 'media',
+  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
+  type: 'subscription',
+  id: '#'
+});
 
-//Instagram.subscriptions.unsubscribe({ id: '17093150'});
-//Instagram.subscriptions.unsubscribe({ id: '17093149'});
 /**
  * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
  * with the tag "hashtag" lollapalooza2013
  * @type {String}
  */
-/*
+ /*
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'cool',
+  object_id: 'campignite',
   aspect: 'media',
-  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
+  callback_url: 'http://kaixuan2013.github.io/Pictureful/callback',
   type: 'subscription',
   id: '#'
 });
@@ -109,7 +97,6 @@ app.get("/views", function(req, res){
     res.render("album");
 });
 
-
 // check subscriptions
 // https://api.instagram.com/v1/subscriptions?client_secret=YOUR_CLIENT_ID&client_id=YOUR_CLIENT_SECRET
 
@@ -129,14 +116,14 @@ io.sockets.on('connection', function (socket) {
 /**
  * Needed to receive the handshake
  */
-app.get('/album.html/callback', function(req, res){
+app.get('/callback', function(req, res){
     var handshake =  Instagram.subscriptions.handshake(req, res);
 });
 
 /**
  * for each new post Instagram send us the data
  */
-app.post('/album.html/callback', function(req, res) {
+app.post('/callback', function(req, res) {
     var data = req.body;
 
     // Grab the hashtag "tag.object_id"
