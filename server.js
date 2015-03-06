@@ -7,7 +7,7 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-var hashTag = 'guitar';
+//var hashTag = 'guitar';
 
 /**
  * Set the paths for your files
@@ -39,7 +39,7 @@ Instagram.set('maxSockets', 10);
  */
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: hashTag,
+  object_id: 'guitar',
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
