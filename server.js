@@ -7,7 +7,7 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-var hashTag = 'picturefultest';
+var hashTag = 'girls';
 
 /**
  * Set the paths for your files
@@ -42,21 +42,6 @@ Instagram.subscriptions.subscribe({
   object_id: hashTag,
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.php/callback',
-  type: 'subscription',
-  id: '#'
-});
-
-/**
- * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
- * with the tag "hashtag" lollapalooza2013
- * @type {String}
- */
-
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: 'girls',
-  aspect: 'media',
-  callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
   id: '#'
 });
