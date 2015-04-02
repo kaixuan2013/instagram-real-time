@@ -51,16 +51,16 @@ Instagram.subscriptions.subscribe({
  * with the tag "hashtag" lollapalooza2013
  * @type {String}
  */
-/*
+
 Instagram.subscriptions.subscribe({
   object: 'tag',
-  object_id: 'campignite2',
+  object_id: 'girls',
   aspect: 'media',
   callback_url: 'http://pictureful-realtime.herokuapp.com/album.html/callback',
   type: 'subscription',
   id: '#'
 });
-*/
+
 
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
