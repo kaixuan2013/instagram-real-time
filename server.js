@@ -7,7 +7,7 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-var hashTag = 'girls';
+var hashTag = 'picturefultest';
 
 /**
  * Set the paths for your files
