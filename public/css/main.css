@@ -9,12 +9,12 @@ Author URL: http://shapebootstrap.net
 *******Typography******
 **************************/
 body {
-  padding-top: 100px;
+  padding-top: 0px;
   background: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #64686d;
-  line-height: 26px;
+  line-height: 0px;
 }
 h1,
 h2,
