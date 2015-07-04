@@ -7,7 +7,7 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-var hashTag = 'andyelizawedding';
+var hashTag = 'testingapp';
 
 /**
  * Set the paths for your files
