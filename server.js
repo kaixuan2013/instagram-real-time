@@ -7,7 +7,7 @@ var http = require('http');
 var request = ('request');
 var intervalID;
 
-var hashTag = 'testingapp';
+var hashTag = 'theFAPwedding';
 
 /**
  * Set the paths for your files
